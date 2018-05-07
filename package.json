@@ -1,0 +1,23 @@
+{
+  "name": "project-threesixty",
+  "version": "1.0.0",
+  "description": "app that does what my GPP GSR Job Cost Cards Spreadsheet does",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/StetsonRamey/project-threesixty.git"
+  },
+  "author": "Stetson R, Garrett L, David E",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/StetsonRamey/project-threesixty/issues"
+  },
+  "homepage": "https://github.com/StetsonRamey/project-threesixty#readme",
+  "dependencies": {
+    "mysql": "^2.15.0"
+  }
+}
