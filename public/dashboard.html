@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="./css/nav.css">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <body ng-app="app">
+        <section class='global-wrapper' ng-controller="ctrl">
+            <aside>
+                <h1>a</h1>
+                <!--top nav -->
+                <ul>
+                    <li class="active">
+                        <div class="nav-item">
+                            <i class="material-icons">photo_library</i>
+                            <span>View More</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="nav-item">
+                            <i class="material-icons">local_atm</i>
+                            <span>Transactions</span>
+                        </div>
+                    </li>
+                </ul>
+
+                <!--bottom nav -->
+                <ul>
+                    <li>
+                        <div class="nav-item">
+                            <i class="material-icons">settings</i>
+                            <span>settings</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="nav-item">
+                            <i class="material-icons">launch</i>
+                            <span>launch</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="nav-item">
+                            <i class="material-icons">info_outline</i>
+                            <span>learn more</span>
+                        </div>
+                    </li>
+                </ul>
+            </aside>
+
+            <main id="main">
+                <div id="blackout-on-hover"></div>
+                <header>
+                    <nav>Help ?</nav>
+                    <h2>View More</h2>
+                </header>
+                <section id="card-view">
+
+                    <article>
+                        <div class="card-image"></div>
+                        <div class="card-text">
+                            <h3>Cool Card</h3>
+                            <p>more cool text area for this cool card</p>
+                        </div>
+                        <button>Cool Button</button>
+                    </article>
+
+                    <article>
+                        <div class="card-image"></div>
+                        <div class="card-text">
+                            <h3>Cool Card</h3>
+                            <p>more cool text area for this cool card</p>
+                        </div>
+                        <button>Cool Button</button>
+                    </article>
+                    <article>
+                        <div class="card-image"></div>
+                        <div class="card-text">
+                            <h3>Cool Card</h3>
+                            <p>more cool text area for this cool card</p>
+                        </div>
+                        <button>Cool Button</button>
+                    </article>
+                </section>
+
+            </main>
+
+        </section>
+
+    </body>
+
+<script>
+        var app = angular.module('app', [])
+
+        app.controller('ctrl', function ($scope, $timeout) {  
+            // coming soon
+        });
+</script>
+
+</body>
+
+
+</html>
