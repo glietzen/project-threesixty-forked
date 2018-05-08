@@ -1,0 +1,98 @@
+/*SIDE BAR*/
+#sidebarWrapper {
+    z-index: 1;
+    position: absolute;
+    width: 75px;
+    height: 100%;
+    overflow-y: hidden;
+    background: #2c3e50;
+    opacity: 0.9;
+    text-align: center;
+}
+
+#sidebarWrapper a {
+    text-decoration: none;
+    color: #fff;
+}
+
+
+#sidebarWrapper i,
+.sidebar-nav i {
+    padding-top: 30px;
+    padding-bottom: 40px;
+    color: #fff;
+    margin: 0;
+}
+
+/* MAIN CONTENT */
+#pageContentWrapper {
+    width: 100%;
+    position: absolute;
+    padding: 15px;
+}
+
+/* CHANGE THE WIDTH OF SIDEBAR TO DISPLAY IT*/
+#wrapper.menu-displayed #sidebarWrapper{
+    width: 250px;
+}
+
+
+#wrapper.menu-displayed #sidebarWrapper .menu-row{
+    text-align: left;
+    padding-left: 20px;
+}
+
+.toggle-text {
+    margin-left: 10px;
+}
+
+#wrapper.menu-displayed #sidebarWrapper .menu-row:hover{
+    text-align: left;
+    padding-left: 20px;
+    background: #16A085;
+}
+
+#wrapper #sidebarWrapper .menu-row:hover {
+    background: #16A085;
+}
+
+#wrapper.menu-displayed #sidebarWrapper i{
+    padding-top: 30px;
+    padding-bottom: 40px;
+    color: #fff;
+    margin: 0;
+}
+
+#wrapper.menu-displayed #pageContentWrapper{
+    padding-left: 250px;
+}
+
+#wrapper #pageContentWrapper{
+    padding-left: 100px;
+}
+
+/* SIDE BAR STYLING */
+.sidebar-nav {
+    padding: 0;
+    list-style: none;
+}
+
+.sidebar-nav li {
+    text-indent: 20px;
+    line-height: 40px;
+}
+
+.sidebar-nav li a {
+    display: block;
+    text-decoration: none;
+    color: #ddd;
+}
+
+.sidebar-nav li a:hover {
+    background: #16A085;
+}
+
+.hide {
+    display: none;
+}
+
