@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 // REQUIRE DEPENDENCIES
 // ============================================
 const express = require('express');
@@ -37,3 +38,5 @@ db.sequelize.sync({ force: true }).then(() => {
     });
 });
 
+=======
+>>>>>>> parent of b112081... Merge pull request #1 from davidjemerson/Garrett-Branch
