@@ -1,11 +1,9 @@
-<<<<<<< HEAD
 // REQUIRE DEPENDENCIES
 // ============================================
 const express = require('express');
 const bodyParser = require('body-parser');
 const db = require('./models');
-const exphbs = require("express-handlebars");
-const routes = require('./controller/project_controller');
+
 
 let app = express();
 let PORT = process.env.PORT || 8080;
@@ -14,15 +12,7 @@ let PORT = process.env.PORT || 8080;
 // ============================================
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
-app.engine("handlebars", exphbs({ defaultLayout: "main" }));
-app.set("view engine", "handlebars");
-app.use(routes);
 
-// VIEWS
-// ============================================
-
-app.engine("handlebars", exphbs({ defaultLayout: "main" }));
-app.set("view engine", "handlebars");
 
 // ROUTES
 // ============================================
@@ -38,5 +28,3 @@ db.sequelize.sync({ force: true }).then(() => {
     });
 });
 
-=======
->>>>>>> parent of b112081... Merge pull request #1 from davidjemerson/Garrett-Branch
