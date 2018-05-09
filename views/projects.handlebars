@@ -1,0 +1,36 @@
+{{!-- HEADER AREA --}} {{!-- END HEADER AREA --}} 
+
+{{!-- SIDE NAV AREA --}} {{!-- END SIDE NAV AREA --}} 
+
+{{!-- FORM FOR NEW sJOB --}}
+<div class="container">
+  <form class="new-job">
+    <div class="row">
+      <div class="form-group col-md-6">
+        <label for="jobName">Job Name</label>
+        <input type="text" class="form-control" id="jobName" placeholder="What's the name of this job?">
+      </div>
+      <div class="form-group col-md-6">
+        <label for="jobStatus">Job Status</label>
+        <select id="jobStatus" class="form-control">
+          <option selected>Queued</option>
+          <option>In Progress</option>
+          <option>Complete</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="form-group col-md-6">
+        <label for="paintPrice">Price of Painting</label>
+        <input type="text" class="form-control" id="paintPrice" placeholder="$">
+      </div>
+      <div class="form-group col-md-6">
+        <label for="woodRotPrice">Price of Wood Rot Repair</label>
+        <input type="text" class="form-control" id="woodRotPrice" placeholder="$">
+      </div>
+    </div>
+
+  </form>
+</div>
+{{!-- END FORM FOR NEW JOB --}}
