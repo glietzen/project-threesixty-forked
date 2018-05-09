@@ -1,0 +1,22 @@
+.bar-chart{
+    width:100%;
+    height:100%;  
+    margin:0;
+    padding: 0;
+   }
+   
+   .bar-chart > svg{  
+    display:block;
+   }
+   
+   .color-red {
+     fill: red;
+   }
+   
+   .color-green {
+     fill: green;
+   }
+   
+   .color-blue {
+     fill: blue;
+   }
