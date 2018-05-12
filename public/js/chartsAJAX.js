@@ -24,18 +24,20 @@ $(function () {
 
         // GET DATA FROM DATABASE
         $.ajax({
-            url: `/api/project/all`,
+            url: `/api/projects`,
             method: `GET`
         }).then((response) => {
             // LOOP THROUGH DATA
             for (var i = 0; i < response.length; i++) {
                 // PIE TOTALS
                     // GET TOTAL COSTS
-                    materialCost += parseInt(response[i].material_actual);
-                    laborCost += parseInt(response[i].labor_actual);
-                    insuranceCost += parseInt(response[i].insurance_cost);
-                    jobTotal += parseInt(response[i].job_total);
-                    profit += parseInt(response[i].profit_actual);                    
+                    if(response[i].profit_actual != undefined) {
+                        materialCost += parseInt(response[i].material_actual);
+                        laborCost += parseInt(response[i].labor_actual);
+                        insuranceCost += parseInt(response[i].insurance_cost);
+                        jobTotal += parseInt(response[i].job_total);
+                        profit += parseInt(response[i].profit_actual);                    
+                    }
 
                 // FUNNEL TOTALS
                     // IF IN COMPLETE STATUS
