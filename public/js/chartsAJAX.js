@@ -1,9 +1,9 @@
 $(function () {
 
     // SET NAVBAR TOGGLING
-    $('#menuToggle').click((e) => {
+    $("#menu-toggle").click(function (e) {
         e.preventDefault();
-        $('#wrapper').toggleClass('menu-displayed');
+        $("#wrapper").toggleClass("toggled");
         $('.toggle-text').toggleClass('hide show');
     });
     // SET CHART
@@ -60,7 +60,7 @@ $(function () {
                 chart: {
                     renderTo: 'chart-container',
                     type: 'pie',
-                    height: 400,
+                    height: 350,
                     style: {
                         fontFamily: 'roboto'
                     }
@@ -115,7 +115,7 @@ $(function () {
                 chart: {
                     renderTo: 'chart-container-2',
                     type: 'funnel',
-                    height: 400,
+                    height: 350,
                     style: {
                         fontFamily: 'roboto'
                     }
