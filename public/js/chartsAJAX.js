@@ -12,8 +12,9 @@ $(function () {
     $(document).ready(function () {
     // CHART VARIABLES
         // PIE VARIABLES
-            let paintCost = 0;
-            let woodRot = 0;
+            let materialCost = 0;
+            let laborCost = 0;
+            let insuranceCost = 0;
             let jobTotal = 0;
             let profit = 0;
         // FUNNEL VARIABLES
@@ -30,10 +31,11 @@ $(function () {
             for (var i = 0; i < response.length; i++) {
                 // PIE TOTALS
                     // GET TOTAL COSTS
-                    paintCost += parseInt(response[i].paint_cost);
-                    woodRot += parseInt(response[i].wood_rot);
+                    materialCost += parseInt(response[i].material_actual);
+                    laborCost += parseInt(response[i].labor_actual);
+                    insuranceCost += parseInt(response[i].insurance_cost);
                     jobTotal += parseInt(response[i].job_total);
-                    profit = jobTotal - (paintCost + woodRot);                    
+                    profit += parseInt(response[i].profit_actual);                    
 
                 // FUNNEL TOTALS
                     // IF IN COMPLETE STATUS
@@ -51,8 +53,9 @@ $(function () {
             }
 
             // CONVERT TO PIE CHART PERCENTAGES
-            paintCost = (paintCost / jobTotal) * 100;
-            woodRot = (woodRot / jobTotal) * 100;
+            materialCost = (materialCost / jobTotal) * 100;
+            laborCost = (laborCost / jobTotal) * 100;
+            insuranceCost = (insuranceCost / jobTotal) * 100;
             profit = (profit / jobTotal) * 100;
 
             // CREATE & RENDER PIE CHART
@@ -90,24 +93,15 @@ $(function () {
                         sliced: true,
                         selected: true
                     }, {
-                        name: 'Paint',
-                        y: paintCost
+                        name: 'Materials',
+                        y: materialCost
                     }, {
-                        name: 'Wood Rot',
-                        y: woodRot
-                        // }, {
-                        //     name: 'Change Orders',
-                        //     y: 4.67
-                        // }, {
-                        //     name: 'Labor',
-                        //     y: 4.18
-                        // }, {
-                        //     name: 'Insurance',
-                        //     y: 4.44
-                        // }, {
-                        //     name: 'Other',
-                        //     y: 2.61
-                    }]
+                        name: 'Labor',
+                        y: laborCost
+                        }, {
+                            name: 'Insurance',
+                            y: insuranceCost
+                        }]
                 }]
             });
             // CREATE & RENDER FUNNEL CHART
