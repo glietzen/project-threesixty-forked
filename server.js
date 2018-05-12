@@ -4,7 +4,6 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const db = require('./models');
 const path = require('path');
-const exphbs = require('express-handlebars');
 
 let app = express();
 let PORT = process.env.PORT || 8080;
@@ -21,12 +20,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 // ============================================
 require('./routes/api-routes')(app);
 require('./routes/html-routes')(app);
-
-// HANDLEBARS
-// ============================================
-app.set('views', './views')
-app.engine('hbs', exphbs({extname: '.hbs'}));
-app.set('view engine', '.hbs');
 
 // SYNC SEQUELIZE & START APP
 //============================================
