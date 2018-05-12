@@ -13,22 +13,9 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
     crossorigin="anonymous">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="./css/projects-style.css">
   
-  <!-- custom css -->
-  <link rel="stylesheet" href="./css/style.css">
-
-  <!-- bootstrap table cdn -->
-  <!-- Latest compiled and minified CSS -->
-  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.12.1/bootstrap-table.min.css">
-
-  <!-- Latest compiled and minified JavaScript -->
-  <script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.12.1/bootstrap-table.min.js"></script>
-
-  <!-- Latest compiled and minified Locales -->
-  <script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.12.1/locale/bootstrap-table-zh-CN.min.js"></script>
   
-
-
 </head><!-- END HEAD -->
 
 
@@ -100,8 +87,14 @@
       <tbody>
         <tr>
           <th scope="row">001</th>
-          <td>something here</td>
-          <td></td>
+          <td contentEditable>something here</td>
+          <td>
+            <select id="jobStatus" class="form-control">
+              <option selected>Queued</option>
+              <option>In Progress</option>
+              <option>Complete</option>
+            </select>
+          </td>
           <td></td>
           <td></td>
           <td></td>
@@ -138,6 +131,9 @@
     crossorigin="anonymous"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
     crossorigin="anonymous"></script>
+
+    <script type="text/javascript" src="./js/projects.js"></script>
+    
 
   
 
