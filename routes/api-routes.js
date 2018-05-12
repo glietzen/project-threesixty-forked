@@ -11,10 +11,24 @@ module.exports = (app) => {
             res.json(dbPost);
         });
     });
+    
+    
+    // PUT ROUTE FOR UPDATING A ROW
+    app.put('/api/project/new', (req, res) => {
+        db.costs.update(req.body,
+        {
+            where: {
+                id: req.body.id
+            }
+        })
+        .then((dbPost) => {
+            res.json(dbPost)
+        });
+    });
 
 
 
 
 
 
-}
+};
