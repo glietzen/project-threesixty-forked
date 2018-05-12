@@ -3,8 +3,6 @@ $(document).ready(function() {
 	var users;
 	var username;
 
-	getUsers();
-
 	function addUser(userData) {
 		$.post("/api/users", userData, function() {
 			window.location.href = "/users";

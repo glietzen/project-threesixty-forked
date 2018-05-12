@@ -1,20 +1,17 @@
-var authController = require('../controllers/auth_controller.js');
+var authController = require('../controller/auth_controller.js');
 
 module.exports = function(app,passport){
 
 app.get('/signup', authController.signup);
-
-
 app.get('/signin', authController.signin);
-
 
 app.post('/signup', passport.authenticate('local-signup',  { successRedirect: '/dashboard',
                                                     failureRedirect: '/signup'}
                                                     ));
 
-
 app.get('/dashboard',isLoggedIn, authController.dashboard);
 
+app.get('/user',isLoggedIn, authController.user);
 
 app.get('/logout',authController.logout);
 
@@ -33,9 +30,3 @@ function isLoggedIn(req, res, next) {
 
 
 }
-
-
-
-
-
-
