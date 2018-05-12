@@ -22,107 +22,28 @@
 
 <!-- BODY -->
 <body>
-
+  
   <div class="container">
-    <form class="new-job">
-      <div class="row">
-        <div class="form-group col-md-6">
-          <label for="jobName">Job Name</label>
-          <input type="text" class="form-control" id="jobName" placeholder="What's the name of this job?">
-        </div>
-        <div class="form-group col-md-6">
-          <label for="jobStatus">Job Status</label>
-          <select id="jobStatus" class="form-control">
-            <option selected>Queued</option>
-            <option>In Progress</option>
-            <option>Complete</option>
-          </select>
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="form-group col-md-6">
-          <label for="paintPrice">Price of Painting</label>
-          <input type="text" class="form-control" id="paintPrice" placeholder="$">
-        </div>
-        <div class="form-group col-md-6">
-          <label for="woodRotPrice">Price of Wood Rot Repair</label>
-          <input type="text" class="form-control" id="woodRotPrice" placeholder="$">
-        </div>
-      </div>
-
-    </form>
-
-    <button type="button" id="addJob" class="btn btn-primary btn-lg">Add Job</button>
-  </div>
-
-  <table class="table table-striped table-bordered">
-      <thead>
-        <tr>
-          <th scope="col">Job ID #</th>
-          <th scope="col" data-editable="true">Job Name</th>
-          <th scope="col">Job Status</th>
-          <th scope="col">Paint Price $$</th>
-          <th scope="col">Wood Rot Price $$</th>
-          <th scope="col">Change Order Price $$</th>
-          <th scope="col">Job Total Price $$</th>
-          <th scope="col">PM Cost $$</th>
-          <th scope="col">PM Cost %</th>
-          <th scope="col">Sales Cost $$</th>
-          <th scope="col">Sales Cost %</th>
-          <th scope="col">Insurance Cost $$</th>
-          <th scope="col">Insurance Cost %</th>
-          <th scope="col">Labor Est Cost $$</th>
-          <th scope="col">Labor Est Cost %</th>
-          <th scope="col">Material Est Cost $$</th>
-          <th scope="col">Material Est Cost %</th>
-          <th scope="col">Labor Actual Cost $$</th>
-          <th scope="col">Labor Actual Cost %</th>
-          <th scope="col">Material Actual Cost $$</th>
-          <th scope="col">Material Actual Cost %</th>
-          <th scope="col">Profit Est $$</th>
-          <th scope="col">Profit Est %</th>
-          <th scope="col">Profit Actual $$</th>
-          <th scope="col">Profit Actual %</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <th scope="row">001</th>
-          <td contentEditable>something here</td>
-          <td>
-            <select id="jobStatus" class="form-control">
-              <option selected>Queued</option>
-              <option>In Progress</option>
-              <option>Complete</option>
+      <div class="row mt-4">
+        <div class="col-md-4">
+          <div class="form-group">
+            <select class="custom-select" id="status">
+              <option selected value="">All Statuses</option>
+              <option value="Queued">Queued</option>
+              <option value="In Progress">In Progress</option>
+              <option value="Complete">Complete</option>
             </select>
-          </td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-        </tr>
-      </tbody>
-    </table>
-
+          </div>
+        </div>
+        <div class="col-md-2">
+          <a class="btn btn-light" href="/new-project">New Job</a>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12 job-container">
+        </div>
+      </div>
+    </div>
 
 
   <!-- Optional JavaScript -->
@@ -134,10 +55,6 @@
     crossorigin="anonymous"></script>
 
   <script type="text/javascript" src="./js/projects.js"></script>
-    
-
-  
-
 
 </body><!-- END BODY -->
 
