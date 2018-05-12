@@ -13,4 +13,8 @@ module.exports = (app) => {
         res.sendFile(path.join(__dirname, "../public/dashboard.html"))
     })
 
+    app.get("/users", function(req, res) {
+    	res.sendFile(path.join(__dirname, "../public/users.html"))
+    });
+
 }
