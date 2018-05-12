@@ -3,6 +3,9 @@ $(document).ready(function() {
   var jobContainer = $('.job-container');
   var jobStatusSelect = $('#status');
 
+  // <<<<<<<<<<  TODO >>>>>>>>>>>>>>>>
+  // click events for edit and delete buttons
+
   // This function grabs Projects from the database and updates the view
   function getJobs(status) {
     var statusString = status || '';

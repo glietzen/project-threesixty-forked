@@ -6,16 +6,11 @@ module.exports = (app) => {
 // ============================================
 
     // GET ALL DATA FROM DATABASE
-    app.get('/api/project/all', (req,res) => {
-        db.costs.findAll({}).then((results) => {
-            res.json(results);
-        });
-    });
-
-
-// POST ROUTES
-// ============================================
-
+    // app.get('/api/project/all', (req,res) => {
+    //     db.costs.findAll({}).then((results) => {
+    //         res.json(results);
+    //     });
+    // });
 
     // GET ROUTE FOR GRABBING ALL THE PROJECTS
     app.get("/api/projects/", (req, res) => {
@@ -25,12 +20,32 @@ module.exports = (app) => {
         });
     });
 
+    // GET ROUTE FOR GRABBING ONE PROJECT FROM ID
+    app.get("/api/projects/:id", (req, res) => {
+        db.costs.findOne({
+            where: {
+                id: req.params.id
+            }
+        })
+        .then((dbPost) => {
+            res.json(dbPost);
+        });
+    });
+
+
+
+// POST ROUTES
+// ============================================
+
     // POST NEW ROW
     app.post('/api/project/new', (req, res) => {
         db.costs.create(req.body).then((dbPost) => {
             res.json(dbPost);
         });
     });
+
+// PUT ROUTES
+// ============================================
     
     // PUT ROUTE FOR UPDATING A ROW
     app.put('/api/project/new', (req, res) => {
