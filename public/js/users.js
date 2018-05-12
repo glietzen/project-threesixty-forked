@@ -1,9 +1,11 @@
 $(document).ready(function() {
 	var userContainer = $(".users");
+	var users;
 	getUsers();
 
 	function getUsers() {
-		$.get("api/users", function(users) {
+		$.get("api/users", function(data) {
+			users = data;
 			console.log("Users", users);
 			showUsers();
 		});
