@@ -3,9 +3,12 @@ $(document).ready(function() {
   var jobContainer = $('.job-container');
   var jobStatusSelect = $('#status');
 
-  // TODO: 
+  // DONE:
   // click events for edit and delete buttons
-
+  $(document).on('click', 'button.delete', handleProjectDelete);
+  $(document).on('click', 'button.edit', handleProjectEdit);
+  jobStatusSelect.on('change', handleStatusChange);
+  var projects;
 
   // This function grabs Projects from the database and updates the view
   function getJobs(status) {
@@ -24,17 +27,16 @@ $(document).ready(function() {
     });
   }
 
-  // DONE: 
+  // DONE:
   // API call to delete posts
   function deleteProject(id) {
     $.ajax({
-      method: "DELETE",
-      url: "/api/projects/" + id
-    })
-    .then(function() {
+      method: 'DELETE',
+      url: '/api/projects/' + id
+    }).then(function() {
       getJobs(jobStatusSelect.val());
     });
-  };
+  }
 
   // GET ALL THE JOBS
   getJobs();
@@ -50,34 +52,32 @@ $(document).ready(function() {
     jobContainer.append(projectsToAdd);
   }
 
-
   // This function constructs a Project's HTML
   // FIXME: This needs a little work so that it displays properly
   function createNewRow(project) {
-    var newProjectCard = $("<div>");
-    newProjectCard.addClass("card");
-    var newProjectCardHeading = $("<div>");
-    newProjectCardHeading.addClass("card-header");
-    var deleteBtn = $("<button>");
-    deleteBtn.text("x");
-    deleteBtn.addClass("delete btn btn-danger");
-    var editBtn = $("<button>");
-    editBtn.text("EDIT");
-    editBtn.addClass("edit btn btn-default");
-    var newProjectTitle = $("<h2>");
-    var newProjectTitle = $("<small>");
-    var newProjectStatus = $("<h5>");
+    var newProjectCard = $('<div>');
+    newProjectCard.addClass('card');
+    var newProjectCardHeading = $('<div>');
+    newProjectCardHeading.addClass('card-header');
+    var deleteBtn = $('<button>');
+    deleteBtn.text('x');
+    deleteBtn.addClass('delete btn btn-danger');
+    var editBtn = $('<button>');
+    editBtn.text('EDIT');
+    editBtn.addClass('edit btn btn-default');
+    var newProjectTitle = $('<h2>');
+    var newProjectTitle = $('<small>');
+    var newProjectStatus = $('<h5>');
     newProjectStatus.text(project.status);
     newProjectStatus.css({
-      float: "right",
-      "font-weight": "700",
-      "margin-top":
-      "-15px"
+      float: 'right',
+      'font-weight': '700',
+      'margin-top': '-15px'
     });
-    var newProjectCardBody = $("<div>");
-    newProjectCardBody.addClass("card-body");
-    var newProjectBody = $("<p>");
-    newProjectTitle.text(project.title + " ");
+    var newProjectCardBody = $('<div>');
+    newProjectCardBody.addClass('card-body');
+    var newProjectBody = $('<p>');
+    newProjectTitle.text(project.title + ' ');
     newProjectBody.text(project.body);
     newProjectCardHeading.append(deleteBtn);
     newProjectCardHeading.append(editBtn);
@@ -86,18 +86,26 @@ $(document).ready(function() {
     newProjectCardBody.append(newProjectBody);
     newProjectCard.append(newProjectCardHeading);
     newProjectCard.append(newProjectCardBody);
-    newProjectCard.data("Project", project);
+    newProjectCard.data('Project', project);
     return newProjectCard;
   }
 
-  // TODO: figure out what project to delete based on id and call deleteProject
+  // DONE: figure out what project to delete based on id and call deleteProject
   function handleProjectDelete() {
-    
+    var currentProject = $(this)
+      .parent()
+      .parent()
+      .data('Project');
+    deleteProject(currentProject.id);
   }
 
-  // TODO: figure out which project we want to edit by id and take us to the appropriate url
+  // DONE: figure out which project we want to edit by id and take us to the appropriate url
   function handleProjectEdit() {
-    
+    var currentProject = $(this)
+      .parent()
+      .parent()
+      .data('Project');
+    window.location.href = '/new-project?project_id=' + currentProject.id;
   }
 
   // This function displays a message when there are no jobs
@@ -111,13 +119,9 @@ $(document).ready(function() {
     jobContainer.append(messageH2);
   }
 
-  // TODO: handle reloading new projects when the status changes (filter)
+  // DONE: handle reloading new projects when the status changes (filter)
   function handleStatusChange() {
-    
+    var newProjectStatus = $(this).val();
+    getJobs(newProjectStatus);
   }
-
-
-
-
-  
 }); // end document.ready function ------------------>>

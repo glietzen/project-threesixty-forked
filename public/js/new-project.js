@@ -8,7 +8,7 @@ $(document).ready(function() {
   // In localhost:8080/new-project?project_id=1, projectId is 1
   if (url.indexOf('?project_id=') !== -1) {
     projectId = url.split('=')[1];
-    getPostData(projectId);
+    getProjectData(projectId);
   }
 
   // Getting jQuery references to the post body, title, form, and category select
