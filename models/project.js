@@ -12,8 +12,7 @@ module.exports = (sequelize, DataTypes) => {
             allowNull: false
         },
         status: {
-            type: DataTypes.ENUM,
-            values: ['queue', 'in progress', 'complete'],
+            type: DataTypes.STRING,
             allowNull: false
         },
         paint_cost: {

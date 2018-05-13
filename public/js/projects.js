@@ -3,8 +3,9 @@ $(document).ready(function() {
   var jobContainer = $('.job-container');
   var jobStatusSelect = $('#status');
 
-  // <<<<<<<<<<  TODO >>>>>>>>>>>>>>>>
+  // TODO: 
   // click events for edit and delete buttons
+
 
   // This function grabs Projects from the database and updates the view
   function getJobs(status) {
@@ -23,6 +24,18 @@ $(document).ready(function() {
     });
   }
 
+  // DONE: 
+  // API call to delete posts
+  function deleteProject(id) {
+    $.ajax({
+      method: "DELETE",
+      url: "/api/projects/" + id
+    })
+    .then(function() {
+      getJobs(jobStatusSelect.val());
+    });
+  };
+
   // GET ALL THE JOBS
   getJobs();
 
@@ -39,6 +52,7 @@ $(document).ready(function() {
 
 
   // This function constructs a Project's HTML
+  // FIXME: This needs a little work so that it displays properly
   function createNewRow(project) {
     var newProjectCard = $("<div>");
     newProjectCard.addClass("card");
@@ -63,17 +77,27 @@ $(document).ready(function() {
     var newProjectCardBody = $("<div>");
     newProjectCardBody.addClass("card-body");
     var newProjectBody = $("<p>");
-    newProjecttTitle.text(project.title + " ");
-    newProjecttBody.text(project.body);
+    newProjectTitle.text(project.title + " ");
+    newProjectBody.text(project.body);
     newProjectCardHeading.append(deleteBtn);
     newProjectCardHeading.append(editBtn);
-    newProjectCardHeading.append(newProjecttTitle);
-    newProjectCardHeading.append(newProjectCategory);
+    newProjectCardHeading.append(newProjectTitle);
+    newProjectCardHeading.append(newProjectStatus);
     newProjectCardBody.append(newProjectBody);
     newProjectCard.append(newProjectCardHeading);
     newProjectCard.append(newProjectCardBody);
-    newProjectCard.data("Project", Project);
+    newProjectCard.data("Project", project);
     return newProjectCard;
+  }
+
+  // TODO: figure out what project to delete based on id and call deleteProject
+  function handleProjectDelete() {
+    
+  }
+
+  // TODO: figure out which project we want to edit by id and take us to the appropriate url
+  function handleProjectEdit() {
+    
   }
 
   // This function displays a message when there are no jobs
@@ -86,4 +110,14 @@ $(document).ready(function() {
     );
     jobContainer.append(messageH2);
   }
+
+  // TODO: handle reloading new projects when the status changes (filter)
+  function handleStatusChange() {
+    
+  }
+
+
+
+
+  
 }); // end document.ready function ------------------>>

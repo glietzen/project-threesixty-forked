@@ -36,10 +36,10 @@ $(document).ready(function() {
     var newProject = {
       name: name.val().trim(),
       status: status.val(),
-      paintPrice: paintPrice.val().trim(),
-      woodRotPrice: woodRotPrice.val().trim(),
-      actualLabor: actualLabor.val().trim(),
-      actualMaterial: actualMaterial.val().trim()
+      paint_cost: paintPrice.val().trim(),
+      wood_rot: woodRotPrice.val().trim(),
+      labor_actual: actualLabor.val().trim(),
+      material_actual: actualMaterial.val().trim()
     };
 
     console.log(newProject);
