@@ -39,7 +39,8 @@ $(document).ready(function() {
       paint_cost: paintPrice.val().trim(),
       wood_rot: woodRotPrice.val().trim(),
       labor_actual: actualLabor.val().trim(),
-      material_actual: actualMaterial.val().trim()
+      material_actual: actualMaterial.val().trim(),
+      job_total: parseInt(paintPrice.val().trim()) + parseInt(woodRotPrice.val().trim()),
     };
 
     console.log(newProject);

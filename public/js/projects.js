@@ -74,11 +74,25 @@ $(document).ready(function() {
       'font-weight': '700',
       'margin-top': '-15px'
     });
+
+    // MATH FOR CALCING VALUES OF COLUMNS
+    var job_total = project.paint_cost + project.wood_rot;
     var newProjectCardBody = $('<div>');
     newProjectCardBody.addClass('card-body');
     var newProjectBody = $('<p>');
-    newProjectTitle.text(project.title + ' ');
-    newProjectBody.text(project.body);
+    newProjectTitle.text(project.name + ' ');
+    newProjectBody.html(
+      'Total Job Value: $' + project.job_total + '<br>' +
+      'Estimated Labor: $' + .35 * project.job_total + '<br>' +
+      'Estimated Material: $' + .15 * project.job_total + '<br>' +
+      'Estimated Workers Comp Burden: $' + .13 * .35 * project.job_total + '<br>' +
+      'Estimated PM Cost: $' + .05 * project.job_total + '<br>' +
+      'Estimated Sales Cost: $' + .07 * project.job_total + '<br>' +
+      'next line of code'
+  
+  );
+
+    // APPEND EM' ALL
     newProjectCardHeading.append(deleteBtn);
     newProjectCardHeading.append(editBtn);
     newProjectCardHeading.append(newProjectTitle);
