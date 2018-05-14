@@ -74,11 +74,44 @@ $(document).ready(function() {
       'font-weight': '700',
       'margin-top': '-15px'
     });
+
+    //VARIABLES NEEDED
+    var laborEst = .35 * project.job_total,
+        materialEst = .15 * project.job_total,
+        insurnaceEst = .13 * laborEst,
+        pm = .05 * project.job_total,
+        sales = .07 * project.job_total,
+        grossProfitEst = project.job_total - materialEst - laborEst - insurnaceEst - pm - sales;
+    
+    // MATH FOR CALCING VALUES OF COLUMNS
     var newProjectCardBody = $('<div>');
     newProjectCardBody.addClass('card-body');
     var newProjectBody = $('<p>');
-    newProjectTitle.text(project.title + ' ');
-    newProjectBody.text(project.body);
+    newProjectTitle.text(project.name + ' ');
+    newProjectBody.html(
+      'Total Job Value: $' + project.job_total + 
+      '<br><br>' +
+      '<<<<<<<<<<<<<< ESTIMATED COSTS >>>>>>>>>>>>>>>' + '<br><br>' +
+      'Estimated Labor: $' + laborEst + '<br>' +
+      'Estimated Material: $' + materialEst + '<br>' +
+      'Estimated Workers Comp Burden: $' + insurnaceEst + '<br><br>' +
+      '<<<<<<<<<<<<<< FIXED COSTS >>>>>>>>>>>>>>>' + 
+      '<br><br>' +
+      'PM Cost: $' + pm + '<br>' +
+      'Sales Cost: $' + sales + 
+      '<br><br>' +
+      '<<<<<<<<<<<<<< ACTUAL COSTS >>>>>>>>>>>>>>>' + 
+      '<br><br>' +
+      'Actual Labor: $' + project.labor_actual + '<br>' +
+      'Acutal Material: $' + project.material_actual +
+      '<br><br>' +
+      '<<<<<<<<<<<<<< GROSS PROFIT >>>>>>>>>>>>>>>' + 
+      '<br><br>' +
+      'Gross Profit Estimate: $' + grossProfitEst + '<br>' + 
+      'Gross Profit Acutal: $' + (project.job_total - project.labor_actual - project.material_actual - pm - sales - (.13 * project.labor_actual))
+  );
+
+    // APPEND EM' ALL
     newProjectCardHeading.append(deleteBtn);
     newProjectCardHeading.append(editBtn);
     newProjectCardHeading.append(newProjectTitle);
