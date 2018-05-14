@@ -31,6 +31,12 @@ exports.userAdmin = function(req,res){
 
 }
 
+exports.edit = function(req,res){
+
+	res.sendFile(path.join(__dirname, "../public/edit.html"));
+
+}
+
 exports.logout = function(req,res){
 
   req.session.destroy(function(err) {

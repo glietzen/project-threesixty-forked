@@ -19,6 +19,8 @@ app.get('/profile',isLoggedIn, authController.profile);
 
 app.get('/user-admin',isLoggedIn, authController.userAdmin);
 
+app.get('/edit', isLoggedIn, authController.edit);
+
 app.post('/signin', passport.authenticate('local-signin',  { successRedirect: '/profile', failureRedirect: '/signin'}));
 
 function isLoggedIn(req, res, next) {
