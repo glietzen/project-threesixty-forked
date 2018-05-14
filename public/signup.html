@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>Dashboard - Project ThreeSixty</title>
+    <title>Sign Up</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -50,7 +50,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="/log">
+                    <a href="/signin">
                         <i class="fa fa-power-off" aria-hidden="true"></i>
                         <span class="toggle-text hide">Logout</span>
                     </a>
@@ -71,17 +71,22 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col">
-                        <h3 class="">Dashboard</h3>
+                        <h3 class="">Sign Up</h3>
                     </div>
                 </div>
-                <div class="row mt-3">
-                    <div class="">
-                        <div id="chart-container"></div>
-                    </div>
-                    <div class="">
-                        <div id="chart-container-2"></div>
-                    </div>
-                </div>
+				<form id="signup" name="signup" method="post" action="/signup">
+					<input class="text" name="firstname" type="text" placeholder="First Name" />
+					<input class="text" name="lastname" type="text" placeholder="Last Name" />
+					<br>
+					<br>
+					<input class="email" name="email" type="email" placeholder="Email" />
+					<br>
+					<br>
+					<input class="text" name="username" type="text" placeholder="username" />
+					<input name="password" type="password" placeholder="password" /><br>
+					<br>
+					<input class="btn btn-dark" type="submit" value="Sign Up" />
+				</form>
             </div>
         </div>
         <!-- /#page-content-wrapper -->

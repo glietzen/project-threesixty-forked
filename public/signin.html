@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>Dashboard - Project ThreeSixty</title>
+    <title>Sign In</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -71,17 +71,17 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col">
-                        <h3 class="">Dashboard</h3>
+                        <h3 class="">Sign In</h3>
                     </div>
                 </div>
-                <div class="row mt-3">
-                    <div class="">
-                        <div id="chart-container"></div>
-                    </div>
-                    <div class="">
-                        <div id="chart-container-2"></div>
-                    </div>
-                </div>
+				<form id="signin" name="signin" method="post" action="signin">
+					<input class="text" name="username" type="text" placeholder="Username" />
+					<input name="password" type="password" placeholder="Password" />
+					<input class="btn btn-dark" type="submit" value="Sign In" />
+				</form>
+				<div>
+					<p>Project ThreeSixty requires an active user account.</p>
+					<a href="/signup" class="btn btn-dark">Sign Up Here</a>
             </div>
         </div>
         <!-- /#page-content-wrapper -->

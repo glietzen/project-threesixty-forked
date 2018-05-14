@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>Dashboard - Project ThreeSixty</title>
+    <title>User Edit - Project ThreeSixty</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -71,17 +71,18 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col">
-                        <h3 class="">Dashboard</h3>
+                        <h3 class="">Edit User</h3>
                     </div>
                 </div>
-                <div class="row mt-3">
-                    <div class="">
-                        <div id="chart-container"></div>
-                    </div>
-                    <div class="">
-                        <div id="chart-container-2"></div>
-                    </div>
-                </div>
+				<form id="edit">
+					<input class="text" id="firstname" type="text" placeholder="First Name" />
+					<input class="text" id="lastname" type="text" placeholder="Last Name" />
+					<br>
+					<br>
+					<input class="email" id="email" type="email" placeholder="Email" />
+					<br>
+					<input class="btn btn-dark" type="submit" value="Update" />
+				</form>
             </div>
         </div>
         <!-- /#page-content-wrapper -->
@@ -97,6 +98,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
         crossorigin="anonymous"></script>
     <script type="text/javascript" src="./js/chartsAJAX.js"></script>
+    <script type="text/javascript" src="./js/useredit.js"></script>
 
 
 </body>
