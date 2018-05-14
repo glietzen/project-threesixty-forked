@@ -15,10 +15,10 @@ $(document).ready(function() {
   var newProjForm = $('#new-job');
   var name = $('#jobName');
   var status = $('#jobStatus');
-  var paintPrice = $('#paintPrice');
-  var woodRotPrice = $('#woodRotPrice');
-  var actualLabor = $('#actualLabor');
-  var actualMaterial = $('#actualMaterial');
+  var paint_cost = $('#paintPrice');
+  var wood_rot = $('#woodRotPrice');
+  var labor_actual = $('#actualLabor');
+  var material_actual = $('#actualMaterial');
   // Giving the postCategorySelect a default value
   status.val('Queued');
   // Adding an event listener for when the form is submitted
@@ -27,8 +27,8 @@ $(document).ready(function() {
     // Wont submit the post if we are missing a body or a title
     if (
       !name.val().trim() ||
-      !paintPrice.val().trim() ||
-      !woodRotPrice.val().trim()
+      !paint_cost.val().trim() ||
+      !wood_rot.val().trim()
     ) {
       return;
     }
@@ -36,11 +36,11 @@ $(document).ready(function() {
     var newProject = {
       name: name.val().trim(),
       status: status.val(),
-      paint_cost: paintPrice.val().trim(),
-      wood_rot: woodRotPrice.val().trim(),
-      labor_actual: actualLabor.val().trim(),
-      material_actual: actualMaterial.val().trim(),
-      job_total: parseInt(paintPrice.val().trim()) + parseInt(woodRotPrice.val().trim()),
+      paint_cost: parseInt(paint_cost.val().trim()),
+      wood_rot: wood_rot.val().trim(),
+      labor_actual: labor_actual.val().trim(),
+      material_actual: material_actual.val().trim(),
+      job_total: parseInt(paint_cost.val().trim()) + parseInt(wood_rot.val().trim()),
     };
 
     console.log(newProject);
@@ -74,10 +74,10 @@ $(document).ready(function() {
         // If this post exists, prefill our cms forms with its data
         name.val(data.name);
         status.val(data.status);
-        paintPrice.val(data.paintPrice);
-        woodRotPrice.val(data.woodRotPrice);
-        actualLabor.val(data.actualLabor);
-        actualMaterial.val(data.stactualMaterialatus);
+        paint_cost.val(data.paint_cost);
+        wood_rot.val(data.wood_rot);
+        labor_actual.val(data.labor_actual);
+        material_actual.val(data.material_actual);
         // If we have a post with this id, set a flag for us to know to update the post
         // when we hit submit
         updating = true;

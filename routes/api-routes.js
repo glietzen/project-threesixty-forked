@@ -46,12 +46,6 @@ module.exports = app => {
   // POST ROUTES
   // ============================================
 
-  // GET ROUTE FOR GRABBING ALL THE PROJECTS
-  app.get('/api/projects/', (req, res) => {
-    db.costs.findAll({}).then(dbPost => {
-      res.json(dbPost);
-    });
-  });
 
   // POST NEW ROW
   app.post('/api/project/new', (req, res) => {
@@ -60,24 +54,11 @@ module.exports = app => {
     });
   });
 
-  // PUT ROUTE FOR UPDATING A ROW
-  app.put('/api/project/new', (req, res) => {
-    db.costs
-      .update(req.body, {
-        where: {
-          id: req.body.id
-        }
-      })
-      .then(dbPost => {
-        res.json(dbPost);
-      });
-  });
-
   // PUT ROUTES
   // ============================================
 
   // PUT ROUTE FOR UPDATING A ROW
-  app.put('/api/project/new', (req, res) => {
+  app.put('/api/projects', (req, res) => {
     db.costs
       .update(req.body, {
         where: {
