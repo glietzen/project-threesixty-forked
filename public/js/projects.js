@@ -75,21 +75,40 @@ $(document).ready(function() {
       'margin-top': '-15px'
     });
 
+    //VARIABLES NEEDED
+    var laborEst = .35 * project.job_total,
+        materialEst = .15 * project.job_total,
+        insurnaceEst = .13 * laborEst,
+        pm = .05 * project.job_total,
+        sales = .07 * project.job_total,
+        grossProfitEst = project.job_total - materialEst - laborEst - insurnaceEst - pm - sales;
+    
     // MATH FOR CALCING VALUES OF COLUMNS
-    var job_total = project.paint_cost + project.wood_rot;
     var newProjectCardBody = $('<div>');
     newProjectCardBody.addClass('card-body');
     var newProjectBody = $('<p>');
     newProjectTitle.text(project.name + ' ');
     newProjectBody.html(
-      'Total Job Value: $' + project.job_total + '<br>' +
-      'Estimated Labor: $' + .35 * project.job_total + '<br>' +
-      'Estimated Material: $' + .15 * project.job_total + '<br>' +
-      'Estimated Workers Comp Burden: $' + .13 * .35 * project.job_total + '<br>' +
-      'Estimated PM Cost: $' + .05 * project.job_total + '<br>' +
-      'Estimated Sales Cost: $' + .07 * project.job_total + '<br>' +
-      'next line of code'
-  
+      'Total Job Value: $' + project.job_total + 
+      '<br><br>' +
+      '<<<<<<<<<<<<<< ESTIMATED COSTS >>>>>>>>>>>>>>>' + '<br><br>' +
+      'Estimated Labor: $' + laborEst + '<br>' +
+      'Estimated Material: $' + materialEst + '<br>' +
+      'Estimated Workers Comp Burden: $' + insurnaceEst + '<br><br>' +
+      '<<<<<<<<<<<<<< FIXED COSTS >>>>>>>>>>>>>>>' + 
+      '<br><br>' +
+      'PM Cost: $' + pm + '<br>' +
+      'Sales Cost: $' + sales + 
+      '<br><br>' +
+      '<<<<<<<<<<<<<< ACTUAL COSTS >>>>>>>>>>>>>>>' + 
+      '<br><br>' +
+      'Actual Labor: $' + project.labor_actual + '<br>' +
+      'Acutal Material: $' + project.material_actual +
+      '<br><br>' +
+      '<<<<<<<<<<<<<< GROSS PROFIT >>>>>>>>>>>>>>>' + 
+      '<br><br>' +
+      'Gross Profit Estimate: $' + grossProfitEst + '<br>' + 
+      'Gross Profit Acutal: $' + (project.job_total - project.labor_actual - project.material_actual - pm - sales - (.13 * project.labor_actual))
   );
 
     // APPEND EM' ALL
