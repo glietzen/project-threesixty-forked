@@ -1,6 +1,18 @@
 var exports = module.exports = {}
 const path = require('path');
 
+exports.projects = function(req,res){
+
+	res.sendFile(path.join(__dirname, "../public/projects.html"));
+
+}
+
+exports.newProject = function(req,res){
+
+    res.sendFile(path.join(__dirname, "../public/new-project.html"));
+
+}
+
 exports.signup = function(req,res){
 
 	res.sendFile(path.join(__dirname, "../public/signup.html"));
