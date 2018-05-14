@@ -31,6 +31,18 @@ module.exports = app => {
       });
   });
 
+  // GET ROUTE FOR GRABBING PROJECTS BASED ON CATEGORY
+  app.get('/api/projects/status/:status', (req, res) => {
+    db.costs.findAll({
+      where: {
+        status: req.params.status
+      }
+    })
+      .then(dbPost => {
+        res.json(dbPost);
+      });
+  });
+
   // POST ROUTES
   // ============================================
 
