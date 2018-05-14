@@ -9,6 +9,17 @@ module.exports = function(app) {
     });
   });
 
+  // Get current user
+  app.get("/api/users/current", function(req, res) {
+    db.User.findOne({
+      where: {
+        username: req.user.username
+      },
+    }).then(function(dbUser) {
+      res.json(dbUser);
+    });
+  });
+  
   // Find a user by id
   app.get("/api/users/:username", function(req, res) {
     db.User.findOne({

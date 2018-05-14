@@ -20,9 +20,10 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // FOR PASSPORT
 // ============================================
-app.use(session({ secret: 'keyboard cat',resave: true, saveUninitialized:true})); // session secret
+app.use(session({ secret: 'barbecue ribs',resave: true, saveUninitialized:true})); // session secret
 app.use(passport.initialize());
 app.use(passport.session()); // persistent login sessions
+var currentUser;
 
 // ROUTES
 // ============================================
@@ -33,7 +34,7 @@ var authRoute = require('./routes/auth.js')(app,passport);
 
 // MODELS
 // ============================================
-var models = require('./config/passport/passport.js')(passport,'./models/user.js');
+require('./config/passport/passport.js')(passport,db.User);
 
 // SYNC SEQUELIZE & START APP
 //============================================

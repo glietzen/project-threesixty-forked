@@ -1,7 +1,8 @@
 $(document).ready(function() {
-	var userContainer = $(".users");
+	var userContainer = $(".user-data");
 	var users;
-	var username;
+
+	getUsers();
 
 	function addUser(userData) {
 		$.post("/api/users", userData, function() {

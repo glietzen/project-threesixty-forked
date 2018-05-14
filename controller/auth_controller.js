@@ -3,7 +3,7 @@ const path = require('path');
 
 exports.signup = function(req,res){
 
-	res.sendFile(path.join(__dirname, "../public/signup.html"))
+	res.sendFile(path.join(__dirname, "../public/signup.html"));
 
 }
 
@@ -15,20 +15,26 @@ exports.signin = function(req,res){
 
 exports.dashboard = function(req,res){
 
-	res.redirect('/dashboard');
+	res.sendFile(path.join(__dirname, '../public/dashboard.html'));
 
 }
 
-exports.user = function(req,res){
+exports.profile = function(req,res){
 
-	res.redirect('/user');
+	res.sendFile(path.join(__dirname, '../public/profile.html'));
+
+}
+
+exports.userAdmin = function(req,res){
+
+	res.sendFile(path.join(__dirname, '../public/user-admin.html'));
 
 }
 
 exports.logout = function(req,res){
 
   req.session.destroy(function(err) {
-  res.redirect('/');
+  	res.sendFile(path.join(__dirname, '../public/logout.html'));
   });
 
 }
