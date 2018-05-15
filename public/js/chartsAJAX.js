@@ -41,15 +41,15 @@ $(function () {
 
                 // FUNNEL TOTALS
                     // IF IN COMPLETE STATUS
-                    if (response[i].status === 'complete') {
+                    if (response[i].status === 'Complete') {
                         completeTotal += parseInt(response[i].job_total);
                     } 
                     // IF IN QUEUE STATUS
-                    else if (response[i].status === 'queue') {
+                    else if (response[i].status === 'Queued') {
                         queueTotal += parseInt(response[i].job_total);
                     }
                     // IF IN PROGRESS STATUS
-                    else if (response[i].status === 'in progress') {
+                    else if (response[i].status === 'In Progress') {
                         inProgressTotal += parseInt(response[i].job_total);
                     }                 
             }
