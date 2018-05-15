@@ -81,7 +81,8 @@ $(document).ready(function() {
 		return newUserContainer;
 	}
 
-	function handleUserDelete() {
+	function handleUserDelete(e) {
+		e.preventDefault();
 		var thisUser = $(this)
 		.parent()
 		.parent()
@@ -95,13 +96,16 @@ $(document).ready(function() {
   	}
 
 	function deleteUser(id) {
-		$.ajax({
-			method: "DELETE",
-			url: "/api/users/" + id
-		})
-		.then(function() {
-			getUsers();
-		});
+		var conf = confirm("Are you sure you want to delete this user?");
+		if (conf) {
+			$.ajax({
+				method: "DELETE",
+				url: "/api/users/" + id
+			})
+			.then(function() {
+				getUsers();
+			});
+		}
 	}
 
 	function handleUserEdit(event) {
