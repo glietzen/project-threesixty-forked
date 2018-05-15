@@ -11,19 +11,24 @@ $(document).ready(function() {
     getProjectData(projectId);
   }
 
-  // Getting jQuery references to the post body, title, form, and category select
-  var newProjForm = $('#new-job');
-  var name = $('#jobName');
-  var status = $('#jobStatus');
-  var paint_cost = $('#paintPrice');
-  var wood_rot = $('#woodRotPrice');
-  var labor_actual = $('#actualLabor');
-  var material_actual = $('#actualMaterial');
-  // Giving the postCategorySelect a default value
-  status.val('Queued');
+
   // Adding an event listener for when the form is submitted
-  $(newProjForm).on('submit', function handleFormSubmit(event) {
+  $('#new-job').on('submit', function handleFormSubmit(event) {
     event.preventDefault();
+
+    // Giving the postCategorySelect a default value
+    var status = $('#jobStatus').val();
+    if (status === '') {
+      status = 'Queued';
+    }
+
+    // Getting jQuery references to the post body, title, form, and category select
+    var name = $('#jobName');
+    var paint_cost = $('#paintPrice');
+    var wood_rot = $('#woodRotPrice');
+    var labor_actual = $('#actualLabor').val().trim();
+    var material_actual = $('#actualMaterial').val().trim();
+    var job_total = parseInt(paint_cost.val()) + parseInt(wood_rot.val());
     // Wont submit the post if we are missing a body or a title
     if (
       !name.val().trim() ||
@@ -35,12 +40,19 @@ $(document).ready(function() {
     // Constructing a newPost object to hand to the database
     var newProject = {
       name: name.val().trim(),
-      status: status.val(),
+      status: status,
       paint_cost: parseInt(paint_cost.val().trim()),
       wood_rot: wood_rot.val().trim(),
-      labor_actual: labor_actual.val().trim(),
-      material_actual: material_actual.val().trim(),
-      job_total: parseInt(paint_cost.val().trim()) + parseInt(wood_rot.val().trim()),
+      labor_actual: labor_actual,
+      material_actual: material_actual,
+      job_total: job_total,
+      pm_cost: .05 * job_total,
+      sales_cost: .07 * job_total,
+      labor_est: .35 * job_total,
+      material_est: .15 * job_total,
+      insurance_cost: .05 * .35 * job_total,
+      profit_budget: job_total - job_total * (.05 + .07 + .35 + .15 + (.05*.35)),
+      profit_actual: job_total - labor_actual - material_actual - job_total * (.05 + .07) - (.13 * labor_actual)
     };
 
     console.log(newProject);

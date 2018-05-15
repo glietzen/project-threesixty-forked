@@ -53,7 +53,7 @@ $(document).ready(function() {
   }
 
   // This function constructs a Project's HTML
-  // FIXME: This needs a little work so that it displays properly
+  // FIXED: This needs a little work so that it displays properly
   function createNewRow(project) {
     var newProjectCard = $('<div>');
     newProjectCard.addClass('card');
